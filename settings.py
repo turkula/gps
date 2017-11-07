@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
-from unipath import path
-#from django.core.urlresolver import reverse_lazy
+
+from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.login',
+    'apps.menuPrincipal',
 ]
 
 MIDDLEWARE = [
@@ -130,4 +131,16 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
-#LOGIN_REDIRECT_URL= reverse_lazy()
+LOGIN_REDIRECT_URL= reverse_lazy('menuPrincipal_menuPrincipal')
+
+EMAIL_USE_TLS= True
+
+EMAIL_HOST='smtp.gmail.com'
+
+EMAIL_PORT=25 #587 #25
+
+EMAIL_HOST_USER='seguimiento.proyecto.software@gmail.com'
+
+EMAIL_HOST_PASSWORD='proyecto2017'
+
+EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
